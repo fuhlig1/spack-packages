@@ -27,6 +27,7 @@ class Rapidjson(CMakePackage):
     variant("doc", default=False, description="Build and install documentation")
 
     depends_on("cxx", type="build")  # generated
+    depends_on("c", type="build")  # generated
 
     depends_on("doxygen+graphviz", when="+doc")
 
@@ -43,4 +44,5 @@ class Rapidjson(CMakePackage):
     def cmake_args(self):
         args = []
         args.append(self.define_from_variant("RAPIDJSON_BUILD_DOC", "doc"))
+        args.append(self.define("RAPIDJSON_BUILD_TESTS", False))
         return args
