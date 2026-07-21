@@ -1,0 +1,7 @@
+diff --git a/eos.spec b/eos.spec
+new file mode 100644
+index 0000000..b295245
+--- /dev/null
++++ b/eos.spec
+@@ -0,0 +1 @@
++Version: 5.5.0
