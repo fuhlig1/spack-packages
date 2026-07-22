@@ -1,0 +1,38 @@
+diff --git a/misc/var/CMakeLists.txt b/misc/var/CMakeLists.txt
+index f2c866261..a4ae5f679 100644
+--- a/misc/var/CMakeLists.txt
++++ b/misc/var/CMakeLists.txt
+@@ -22,19 +22,19 @@
+ # ************************************************************************
+ 
+ install(DIRECTORY eos USE_SOURCE_PERMISSIONS
+-  DESTINATION ${CMAKE_INSTALL_FULL_LOCALSTATEDIR})
++  DESTINATION ${CMAKE_INSTALL_PREFIX}/var)
+ 
+ # Empty directories are not tracked in git, install them manually
+-install(DIRECTORY DESTINATION ${CMAKE_INSTALL_FULL_LOCALSTATEDIR}/cache/eos/fusex)
+-install(DIRECTORY DESTINATION ${CMAKE_INSTALL_FULL_LOCALSTATEDIR}/cache/eos/cfsd)
+-install(DIRECTORY DESTINATION ${CMAKE_INSTALL_FULL_LOCALSTATEDIR}/eos/archive)
+-install(DIRECTORY DESTINATION ${CMAKE_INSTALL_FULL_LOCALSTATEDIR}/eos/ns-queue/default)
+-install(DIRECTORY DESTINATION ${CMAKE_INSTALL_FULL_LOCALSTATEDIR}/log/eos/archive)
+-install(DIRECTORY DESTINATION ${CMAKE_INSTALL_FULL_LOCALSTATEDIR}/log/eos/cfsd)
+-install(DIRECTORY DESTINATION ${CMAKE_INSTALL_FULL_LOCALSTATEDIR}/log/eos/fuse)
+-install(DIRECTORY DESTINATION ${CMAKE_INSTALL_FULL_LOCALSTATEDIR}/log/eos/fusex)
+-install(DIRECTORY DESTINATION ${CMAKE_INSTALL_FULL_LOCALSTATEDIR}/log/eos/httpd)
+-install(DIRECTORY DESTINATION ${CMAKE_INSTALL_FULL_LOCALSTATEDIR}/log/eos/tx)
+-install(DIRECTORY DESTINATION ${CMAKE_INSTALL_FULL_LOCALSTATEDIR}/share/eos)
+-install(DIRECTORY DESTINATION ${CMAKE_INSTALL_FULL_LOCALSTATEDIR}/www/eos/cgi-bin)
+-install(DIRECTORY DESTINATION ${CMAKE_INSTALL_FULL_RUNSTATEDIR}/eos/credentials/store)
++install(DIRECTORY DESTINATION ${CMAKE_INSTALL_PREFIX}/var/cache/eos/fusex)
++install(DIRECTORY DESTINATION ${CMAKE_INSTALL_PREFIX}/var/cache/eos/cfsd)
++install(DIRECTORY DESTINATION ${CMAKE_INSTALL_PREFIX}/var/eos/archive)
++install(DIRECTORY DESTINATION ${CMAKE_INSTALL_PREFIX}/var/eos/ns-queue/default)
++install(DIRECTORY DESTINATION ${CMAKE_INSTALL_PREFIX}/var/log/eos/archive)
++install(DIRECTORY DESTINATION ${CMAKE_INSTALL_PREFIX}/var/log/eos/cfsd)
++install(DIRECTORY DESTINATION ${CMAKE_INSTALL_PREFIX}/var/log/eos/fuse)
++install(DIRECTORY DESTINATION ${CMAKE_INSTALL_PREFIX}/var/log/eos/fusex)
++install(DIRECTORY DESTINATION ${CMAKE_INSTALL_PREFIX}/var/log/eos/httpd)
++install(DIRECTORY DESTINATION ${CMAKE_INSTALL_PREFIX}/var/log/eos/tx)
++install(DIRECTORY DESTINATION ${CMAKE_INSTALL_PREFIX}/var/share/eos)
++install(DIRECTORY DESTINATION ${CMAKE_INSTALL_PREFIX}/var//www/eos/cgi-bin)
++install(DIRECTORY DESTINATION ${CMAKE_INSTALL_PREFIX}/var/eos/credentials/store)

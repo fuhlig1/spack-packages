@@ -1,0 +1,21 @@
+diff --git a/cmake/Finddavix.cmake b/cmake/Finddavix.cmake
+index 0150dfc37..3ac1845ef 100644
+--- a/cmake/Finddavix.cmake
++++ b/cmake/Finddavix.cmake
+@@ -10,13 +10,13 @@
+ find_path(DAVIX_INCLUDE_DIR
+   NAMES davix.hpp
+   HINTS
+-  /usr ${DAVIX_ROOT} $ENV{DAVIX_ROOT}
++  ${DAVIX_ROOT} $ENV{DAVIX_ROOT} /usr
+   PATH_SUFFIXES include/davix)
+ 
+ find_library(DAVIX_LIBRARY
+   NAMES davix
+-  HINTS /usr ${DAVIX_ROOT} $ENV{DAVIX_ROOT}
+-  PATH_SUFFIXES ${CMAKE_INSTALL_LIBDIR})
++  HINTS ${DAVIX_ROOT} $ENV{DAVIX_ROOT} /usr
++  PATH_SUFFIXES lib64 ${CMAKE_INSTALL_LIBDIR})
+ 
+ include(FindPackageHandleStandardArgs)
+ find_package_handle_standard_args(davix

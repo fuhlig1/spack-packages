@@ -1,0 +1,14 @@
+diff --git a/fusex/tests/CMakeLists.txt b/fusex/tests/CMakeLists.txt
+index dd883dd71..4d2a061cf 100644
+--- a/fusex/tests/CMakeLists.txt
++++ b/fusex/tests/CMakeLists.txt
+@@ -81,9 +81,3 @@ install(PROGRAMS eos-fusex-recovery
+   PERMISSIONS OWNER_READ OWNER_EXECUTE
+               GROUP_READ GROUP_EXECUTE
+               WORLD_READ WORLD_EXECUTE)
+-
+-install(TARGETS eos-fusex-ioverify eos-fusex-tests
+-  DESTINATION ${CMAKE_INSTALL_FULL_SBINDIR}
+-  PERMISSIONS OWNER_READ OWNER_EXECUTE
+-              GROUP_READ GROUP_EXECUTE
+-              WORLD_READ WORLD_EXECUTE)

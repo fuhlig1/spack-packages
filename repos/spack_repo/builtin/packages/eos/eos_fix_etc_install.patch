@@ -1,0 +1,28 @@
+diff --git a/misc/etc/CMakeLists.txt b/misc/etc/CMakeLists.txt
+index 174b9f03f..0e4144ca8 100644
+--- a/misc/etc/CMakeLists.txt
++++ b/misc/etc/CMakeLists.txt
+@@ -24,7 +24,7 @@
+ install(DIRECTORY systemd USE_SOURCE_PERMISSIONS DESTINATION lib)
+ 
+ install(DIRECTORY bash_completion.d cron.d eos logrotate.d sysconfig auto.master.d profile.d
+-  USE_SOURCE_PERMISSIONS DESTINATION ${CMAKE_INSTALL_FULL_SYSCONFDIR})
++  USE_SOURCE_PERMISSIONS DESTINATION ${CMAKE_INSTALL_PREFIX}/etc)
+ 
+ install(FILES
+   bash_completion.d/eos
+@@ -37,7 +37,7 @@ install(FILES
+ install(FILES
+   eos.keytab
+   eos.client.keytab
+-  DESTINATION ${CMAKE_INSTALL_FULL_SYSCONFDIR}
++  DESTINATION ${CMAKE_INSTALL_PREFIX}/etc
+   PERMISSIONS OWNER_READ)
+ 
+ install(FILES
+@@ -49,4 +49,4 @@ install(FILES
+   xrd.cf.prefix
+   xrd.cf.quarkdb
+   auto.cfsd
+-  DESTINATION ${CMAKE_INSTALL_FULL_SYSCONFDIR})
++  DESTINATION ${CMAKE_INSTALL_PREFIX}/etc)

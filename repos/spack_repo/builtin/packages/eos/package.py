@@ -57,7 +57,7 @@ class Eos(CMakePackage):
     variant(
         "cxxstd",
         default="20",
-        values=("11", "14", "17", "20", "23"),
+        values=("20", "23"),
         multi=False,
         description="Use the specified C++ standard when building.",
     )
@@ -87,14 +87,25 @@ class Eos(CMakePackage):
     depends_on("fmt")
     depends_on("bzip2")
     depends_on("rocksdb")
-    depends_on("grpc")
+    depends_on("grpc +shared")
     depends_on("protobuf")
     depends_on("glibc")
     depends_on("xfs")
     depends_on("procps")
     depends_on("scitokens-cpp")
+    depends_on("davix")
+    depends_on("zstd")
+    depends_on("snappy")
+    depends_on("xxhash")
+    depends_on("libnfs")
+    depends_on("binutils")
+    depends_on("py-sphinx")
+    depends_on("help2man")
 
-    patch("eos_version_info.patch", when="@5.5.0")
+    patch("eos_find_davix.patch", when="@5.5.0")
+    patch("eos_fix_fusex_install.patch", when="@5.5.0")
+    patch("eos_fix_etc_install.patch", when="@5.5.0")
+    patch("eos_fix_var_install.patch", when="@5.5.0")
 
     def cmake_args(self):
         spec = self.spec
@@ -103,8 +114,6 @@ class Eos(CMakePackage):
         options = []
 
         options += [
-#            define("ENABLE_TESTS", self.run_tests),
-#            define("ENABLE_SERVER_TESTS", self.run_tests and spec.satisfies("~client_only")),
             define("CLIENT", True),
             define("VERSION", "5.5.0"),
         ]
@@ -114,7 +123,8 @@ class Eos(CMakePackage):
         options.append("-DABSL_ROOT=%s" % spec["abseil-cpp"].prefix)
         options.append("-DPROTOBUF_ROOT=%s" % spec["protobuf"].prefix)
         options.append("-DSCITOKENS_ROOT=%s" % spec["scitokens-cpp"].prefix)
+        options.append("-DDAVIX_ROOT=%s" % spec["davix"].prefix)
+        options.append("-DXFS_ROOT=%s" % spec["xfs"].prefix)
 
         options.append(define_from_variant("CMAKE_CXX_STANDARD", "cxxstd"))
         return options
-
