@@ -90,7 +90,6 @@ class Eos(CMakePackage):
     depends_on("grpc +shared")
     depends_on("protobuf")
     depends_on("glibc")
-    depends_on("xfs")
     depends_on("procps")
     depends_on("scitokens-cpp")
     depends_on("davix")
@@ -98,9 +97,10 @@ class Eos(CMakePackage):
     depends_on("snappy")
     depends_on("xxhash")
     depends_on("libnfs")
-    depends_on("binutils")
+#    depends_on("binutils+libiberty")
     depends_on("py-sphinx")
     depends_on("help2man")
+    depends_on("libcap")
 
     patch("eos_find_davix.patch", when="@5.5.0")
     patch("eos_fix_fusex_install.patch", when="@5.5.0")
@@ -124,7 +124,6 @@ class Eos(CMakePackage):
         options.append("-DPROTOBUF_ROOT=%s" % spec["protobuf"].prefix)
         options.append("-DSCITOKENS_ROOT=%s" % spec["scitokens-cpp"].prefix)
         options.append("-DDAVIX_ROOT=%s" % spec["davix"].prefix)
-        options.append("-DXFS_ROOT=%s" % spec["xfs"].prefix)
 
         options.append(define_from_variant("CMAKE_CXX_STANDARD", "cxxstd"))
         return options
