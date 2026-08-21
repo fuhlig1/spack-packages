@@ -68,7 +68,7 @@ class Eos(CMakePackage):
     depends_on("c", type="build") 
     depends_on("cxx", type="build") 
 
-    depends_on("xrootd")
+    depends_on("xrootd+krb5")
     depends_on("abseil-cpp")
     depends_on("jemalloc")
     depends_on("xrootd")
