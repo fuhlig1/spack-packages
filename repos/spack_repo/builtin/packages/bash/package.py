@@ -194,7 +194,7 @@ class Bash(AutotoolsPackage, GNUMirrorPackage):
     ):
         ver = Version(verstr)
         patch(
-            f"https://ftpmirror.gnu.org/bash/bash-{ver}-patches/bash{ver.joined}-{num}",
+            f"https://ftp.fau.de/gnu/bash/bash-{ver}-patches/bash{ver.joined}-{num}",
             level=0,
             when=f"@{ver}",
             sha256=checksum,
